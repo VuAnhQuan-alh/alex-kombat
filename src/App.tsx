@@ -5,11 +5,14 @@ import gsap from "gsap";
 import PageTheme from "./component/page.theme";
 import { formatter } from "./utils/function";
 import { Progress } from "@chakra-ui/react";
+import { useTelegram } from "./hooks/use-telegram";
 
 function App() {
   const pointRef = useRef<null | number>(null);
   const logoRef = useRef(null);
   const [point, setPoint] = useState(0);
+
+  const { user } = useTelegram();
 
   useEffect(() => {
     pointRef.current = 0;
@@ -49,7 +52,7 @@ function App() {
             <section className="text-[#FDC237]">server</section>
           </section>
           <section className="text-[20px] font-semibold font-chakra">
-            AlexanderVAQ
+            {user?.username || "ahihi do ngoc"}
           </section>
           <Progress
             value={20}
