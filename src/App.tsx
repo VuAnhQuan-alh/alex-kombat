@@ -12,7 +12,7 @@ function App() {
   const logoRef = useRef(null);
   const [point, setPoint] = useState(0);
 
-  const { user } = useTelegram();
+  const { user, webApp } = useTelegram();
 
   useEffect(() => {
     pointRef.current = 0;
@@ -49,7 +49,9 @@ function App() {
         <section className="flex-1 flex-col flex gap-y-1">
           <section className="uppercase text-xs font-semibold flex gap-x-1 -mb-2">
             <section className="text-[#A9A9A9]">top</section>
-            <section className="text-[#FDC237]">server</section>
+            <section className="text-[#FDC237]">
+              {webApp?.platform || "server"}
+            </section>
           </section>
           <section className="text-[20px] font-semibold font-chakra">
             {user?.username || "ahihi do ngoc"}
